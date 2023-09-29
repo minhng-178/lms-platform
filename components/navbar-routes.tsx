@@ -6,7 +6,7 @@ import { LogOut } from 'lucide-react';
 import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
-// import { isTeacher } from '@/lib/teacher';
+import { isTeacher } from '@/lib/teacher';
 
 import { SearchInput } from './search-input';
 
@@ -33,14 +33,13 @@ export const NavbarRoutes = () => {
               Exit
             </Button>
           </Link>
-        ) : // : isTeacher(userId) ? (
-        //    <Link href="/teacher/courses">
-        //      <Button size="sm" variant="ghost">
-        //        Teacher mode
-        //      </Button>
-        //    </Link>
-        //  )
-        null}
+        ) : isTeacher(userId) ? (
+          <Link href="/teacher/courses">
+            <Button size="sm" variant="ghost">
+              Teacher mode
+            </Button>
+          </Link>
+        ) : null}
         <UserButton afterSignOutUrl="/" />
       </div>
     </>
